@@ -1,0 +1,133 @@
+/*
+ * Shared, snake_case, theme-linked CSS classes.
+ * Only for things Tailwind can't cleanly express (gradients, animated bg, masks).
+ * Never hardcode a color here — use var(--*) tokens from theme.css.
+ */
+
+.site_bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.aurora_blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.aurora_1 {
+  width: 45vw;
+  height: 45vw;
+  top: -10vw;
+  left: -10vw;
+  background: var(--aurora-1);
+  animation: aurora_drift_1 22s ease-in-out infinite alternate;
+}
+
+.aurora_2 {
+  width: 40vw;
+  height: 40vw;
+  top: 20vh;
+  right: -12vw;
+  background: var(--aurora-2);
+  animation: aurora_drift_2 28s ease-in-out infinite alternate;
+}
+
+.aurora_3 {
+  width: 38vw;
+  height: 38vw;
+  bottom: -10vw;
+  left: 15vw;
+  background: var(--aurora-3);
+  animation: aurora_drift_3 34s ease-in-out infinite alternate;
+}
+
+@keyframes aurora_drift_1 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(6vw, 4vh) scale(1.1); }
+}
+@keyframes aurora_drift_2 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-5vw, 6vh) scale(1.05); }
+}
+@keyframes aurora_drift_3 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(3vw, -6vh) scale(1.08); }
+}
+
+.container_page {
+  width: 100%;
+  max-width: 88rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container_page { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .container_page { padding-left: 2rem; padding-right: 2rem; }
+}
+
+.text_gradient {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 60%, var(--fg) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card_surface {
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.chip_neutral {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 11px;
+  background: color-mix(in srgb, var(--fg) 6%, transparent);
+  border: 1px solid var(--border);
+  color: var(--fg-muted);
+}
+
+.chip_accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 11px;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  color: var(--accent);
+}
+
+.hover_lift {
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.hover_lift:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  box-shadow: 0 8px 32px -12px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora_blob { animation: none; }
+  .hover_lift { transition: none; }
+}

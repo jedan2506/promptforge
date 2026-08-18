@@ -1,0 +1,28 @@
+{
+  "name": "promptforge",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.28.2",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm -r --parallel run dev",
+    "build": "pnpm -r run build",
+    "test": "pnpm -r run test",
+    "lint": "pnpm -r run lint",
+    "typecheck": "pnpm -r run typecheck",
+    "db:generate": "pnpm --filter @promptforge/backend run db:generate",
+    "db:migrate": "pnpm --filter @promptforge/backend run db:migrate"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "prettier": "^3.4.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "printWidth": 110,
+    "semi": true
+  }
+}

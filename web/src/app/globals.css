@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@import "../styles/theme.css";
+@import "../styles/app.css";
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-fg: var(--accent-fg);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --font-display: "Geist", "Inter", system-ui, sans-serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html, body { min-height: 100%; background: var(--bg); color: var(--fg); font-family: var(--font-display); }
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-x: hidden; -webkit-tap-highlight-color: transparent; }
+  * { border-color: var(--border); }
+  a { color: inherit; }
+  input, textarea, select { font-size: 16px; }
+  @media (min-width: 640px) { input, textarea, select { font-size: inherit; } }
+}

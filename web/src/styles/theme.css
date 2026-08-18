@@ -1,0 +1,43 @@
+/*
+ * Theme tokens — the single source of truth for color.
+ * Both :root (light) and .dark (dark) list the SAME complete set.
+ * Never hardcode a color anywhere else in the app.
+ */
+
+:root {
+  --bg: #fafaf7;
+  --surface: #ffffff;
+  --surface-2: #f4f4ef;
+  --border: #e6e6de;
+  --fg: #14161c;
+  --fg-muted: #626879;
+  --accent: #f97316;
+  --accent-2: #fb923c;
+  --accent-fg: #ffffff;
+  --success: #16a34a;
+  --warning: #ca8a04;
+  --danger: #dc2626;
+
+  --aurora-1: color-mix(in srgb, var(--accent) 22%, transparent);
+  --aurora-2: color-mix(in srgb, #f43f5e 18%, transparent);
+  --aurora-3: color-mix(in srgb, #06b6d4 12%, transparent);
+}
+
+.dark {
+  --bg: #08090d;
+  --surface: #10121a;
+  --surface-2: #171a25;
+  --border: #24283a;
+  --fg: #ececf0;
+  --fg-muted: #8a92a7;
+  --accent: #fb923c;
+  --accent-2: #f97316;
+  --accent-fg: #14161c;
+  --success: #34d399;
+  --warning: #eab308;
+  --danger: #f87171;
+
+  --aurora-1: color-mix(in srgb, var(--accent) 28%, transparent);
+  --aurora-2: color-mix(in srgb, #ec4899 22%, transparent);
+  --aurora-3: color-mix(in srgb, #06b6d4 16%, transparent);
+}
